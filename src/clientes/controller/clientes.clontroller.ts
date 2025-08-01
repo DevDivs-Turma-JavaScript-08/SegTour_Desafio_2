@@ -11,6 +11,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { Clientes } from '../entities/clientes.entities';
+import { ClientesService } from '../services/clientes.services';
 
 @Controller('/clientes')
 export class ClienteController {

@@ -10,7 +10,7 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { Seguros} from 'src/seguros/entities/seguros.entities';
+import { Seguros } from 'src/seguros/entities/seguros.entities';
 
 @Controller('/seguros')
 export class SegurosController {
@@ -30,9 +30,9 @@ export class SegurosController {
 
   @Get('/valor/:valor')
   @HttpCode(HttpStatus.OK)
-  findByValor(@Param('valor') valor: number): Promise<Seguros[]> {
-      return this.segurosService.findByValor(valor);
-}
+  findByValor(@Param('valor', ParseIntPipe) valor: number): Promise<Seguros[]> {
+    return this.segurosService.findByValor(valor);
+  }
 
   @Get('/cobertura/:cobertura')
   @HttpCode(HttpStatus.OK)
