@@ -45,3 +45,5 @@ export class Clientes{
  seguros: Seguros;
     static seguros: any;
 }
+
+export { Seguros };
