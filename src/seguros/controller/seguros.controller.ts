@@ -11,10 +11,11 @@ import {
   Delete,
 } from '@nestjs/common';
 import { Seguros } from 'src/seguros/entities/seguros.entities';
+import { SegurosService } from '../services/seguros.service';
 
 @Controller('/seguros')
 export class SegurosController {
-  constructor(private readonly segurosService: SegurosController) {}
+  constructor(private readonly segurosService: SegurosService) {}
 
   @Get()
   @HttpCode(HttpStatus.OK)
@@ -30,14 +31,16 @@ export class SegurosController {
 
   @Get('/valor/:valor')
   @HttpCode(HttpStatus.OK)
-  findByValor(@Param('valor', ParseIntPipe) valor: number): Promise<Seguros[]> {
-    return this.segurosService.findByValor(valor);
+  findAllbyPreco(
+    @Param('valor', ParseIntPipe) valor: number,
+  ): Promise<Seguros[]> {
+    return this.segurosService.findAllbyPreco(valor);
   }
 
   @Get('/cobertura/:cobertura')
   @HttpCode(HttpStatus.OK)
-  findByCobertura(@Param('cobertura') nome: string): Promise<Seguros[]> {
-    return this.segurosService.findByCobertura(nome);
+  findAllbySeguros(@Param('cobertura') nome: string): Promise<Seguros[]> {
+    return this.segurosService.findAllbySeguros(nome);
   }
 
   @Post()

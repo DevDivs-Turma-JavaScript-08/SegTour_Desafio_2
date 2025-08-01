@@ -31,6 +31,6 @@ export class Seguros {
   @Column({ nullable: false })
   tempoViagem: number;
 
-  @OneToMany(() => Clientes, (clientes) => Clientes.seguros)
+  @OneToMany(() => Clientes, (clientes) => clientes.seguros)
   clientes: Clientes[];
 }

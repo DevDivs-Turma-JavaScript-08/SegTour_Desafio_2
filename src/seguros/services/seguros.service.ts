@@ -13,8 +13,9 @@ export class SegurosService {
   async findAll(): Promise<Seguros[]> {
     return await this.segurosRepository.find();
   }
+
   async findById(id: number): Promise<Seguros> {
-    const seguros = await this.segurosRepository.findOne({
+    const segurosid = await this.segurosRepository.findOne({
       where: {
         id,
       },
@@ -23,10 +24,10 @@ export class SegurosService {
       },
     });
 
-    if (!seguros)
+    if (!segurosid)
       throw new HttpException('Seguro não encontrado!', HttpStatus.NOT_FOUND);
 
-    return seguros;
+    return segurosid;
   }
 
   async findAllbySeguros(nome: string): Promise<Seguros[]> {

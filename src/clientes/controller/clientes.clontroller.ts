@@ -14,7 +14,7 @@ import { Clientes } from '../entities/clientes.entities';
 import { ClientesService } from '../services/clientes.services';
 
 @Controller('/clientes')
-export class ClienteController {
+export class ClientesController {
   constructor(private readonly clientesService: ClientesService) {}
 
   @Get()
@@ -32,7 +32,7 @@ export class ClienteController {
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
   findByNome(@Param('nome') nome: string): Promise<Clientes[]> {
-    return this.clientesService.findByNome(nome);
+    return this.clientesService.findbyAllNome(nome);
   }
   @Post()
   @HttpCode(HttpStatus.CREATED)
