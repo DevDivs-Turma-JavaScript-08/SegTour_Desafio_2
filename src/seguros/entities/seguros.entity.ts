@@ -8,10 +8,6 @@ export class Seguros {
   id: number;
 
   @IsNotEmpty()
-  @Column({ length: 100, nullable: false })
-  destino: string;
-
-  @IsNotEmpty()
   @Column({
     type: 'enum',
     enum: ['basico', 'premium', 'plus'],
