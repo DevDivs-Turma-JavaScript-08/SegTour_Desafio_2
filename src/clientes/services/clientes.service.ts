@@ -72,6 +72,11 @@ export class ClientesService {
     } else {
       clienteid.valorFinal = clienteid.valor;
     }
+
+    if (clienteid.destino == 'Estados Unidos' || clienteid.destino == 'Canada'){
+      clienteid.valorFinal *= 1.2;
+    }
+
     return await this.clientesRepository.save(clienteid);
   }
 

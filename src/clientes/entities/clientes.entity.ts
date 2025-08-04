@@ -49,6 +49,10 @@ export class Clientes {
   @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false })
   valor: number;
 
+  @IsNotEmpty()
+  @Column({ length: 30, nullable: false})
+  destino: string;
+
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   valorFinal: number;
 

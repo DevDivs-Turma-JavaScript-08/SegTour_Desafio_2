@@ -1,7 +1,7 @@
 CREATE DATABASE db_segtour;
 USE db_segtour;
 
-INSERT INTO seguros (destino, tipoCobertura, moeda) VALUES
+INSERT INTO tb_seguros (destino, tipoCobertura, moeda) VALUES
 ('Tóquio - Japão', 'premium', 'Iene'),
 ('Lisboa - Portugal', 'plus', 'Euro'),
 ('Rio de Janeiro - Brasil', 'basico', 'Real'),
@@ -10,7 +10,7 @@ INSERT INTO seguros (destino, tipoCobertura, moeda) VALUES
 ('São Paulo - Brasil', 'basico', 'Real'),
 ('Berlim - Alemanha', 'premium', 'Euro');
 
-INSERT INTO clientes (
+INSERT INTO tb_clientes (
   nome, email, telefone, dataNascimento, cpf, endereço,
   numeroApolice, tempoViagem, valor, valorFinal, seguros_id
 ) VALUES
