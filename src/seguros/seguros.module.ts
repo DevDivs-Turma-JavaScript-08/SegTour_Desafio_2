@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Seguros } from './entities/seguros.entities';
+import { Seguros } from './entities/seguros.entity';
 import { SegurosService } from './services/seguros.service';
 import { SegurosController } from './controller/seguros.controller';
 

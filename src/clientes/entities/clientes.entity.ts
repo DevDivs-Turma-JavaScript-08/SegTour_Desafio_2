@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Seguros } from '../../seguros/entities/seguros.entities';
+import { Seguros } from '../../seguros/entities/seguros.entity';
 
 @Entity({ name: 'tb_clientes' })
 export class Clientes {

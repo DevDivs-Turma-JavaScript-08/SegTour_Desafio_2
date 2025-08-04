@@ -1,7 +1,7 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Clientes } from './entities/clientes.entities';
-import { ClientesController } from './controller/clientes.clontroller';
-import { ClientesService } from './services/clientes.services';
+import { Clientes } from './entities/clientes.entity';
+import { ClientesController } from './controller/clientes.controller';
+import { ClientesService } from './services/clientes.service';
 import { Module } from '@nestjs/common';
 import { SegurosModule } from '../seguros/seguros.module';
 

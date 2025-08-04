@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Seguros } from './seguros/entities/seguros.entities';
+import { Seguros } from './seguros/entities/seguros.entity';
 import { ClientesModule } from './clientes/clientes.module';
 import { SegurosModule } from './seguros/seguros.module';
-import { Clientes } from './clientes/entities/clientes.entities';
+import { Clientes } from './clientes/entities/clientes.entity';
 
 @Module({
   imports: [

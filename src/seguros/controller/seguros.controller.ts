@@ -10,7 +10,7 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { Seguros } from 'src/seguros/entities/seguros.entities';
+import { Seguros } from 'src/seguros/entities/seguros.entity';
 import { SegurosService } from '../services/seguros.service';
 
 @Controller('/seguros')

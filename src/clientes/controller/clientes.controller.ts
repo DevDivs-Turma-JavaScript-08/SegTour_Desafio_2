@@ -10,8 +10,8 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Clientes } from '../entities/clientes.entities';
-import { ClientesService } from '../services/clientes.services';
+import { Clientes } from '../entities/clientes.entity';
+import { ClientesService } from '../services/clientes.service';
 
 @Controller('/clientes')
 export class ClientesController {

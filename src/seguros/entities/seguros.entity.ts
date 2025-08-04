@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Clientes } from '../../clientes/entities/clientes.entities';
+import { Clientes } from '../../clientes/entities/clientes.entity';
 
 @Entity({ name: 'tb_seguros' })
 export class Seguros {
