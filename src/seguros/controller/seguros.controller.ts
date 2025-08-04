@@ -29,14 +29,6 @@ export class SegurosController {
     return this.segurosService.findById(id);
   }
 
-  @Get('/valor/:valor')
-  @HttpCode(HttpStatus.OK)
-  findAllbyPreco(
-    @Param('valor', ParseIntPipe) valor: number,
-  ): Promise<Seguros[]> {
-    return this.segurosService.findAllbyPreco(valor);
-  }
-
   @Get('/cobertura/:cobertura')
   @HttpCode(HttpStatus.OK)
   findAllbySeguros(@Param('cobertura') nome: string): Promise<Seguros[]> {
