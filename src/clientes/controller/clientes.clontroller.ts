@@ -38,7 +38,7 @@ export class ClientesController {
   @HttpCode(HttpStatus.OK)
   findAllbyPreco(
     @Param('valor', ParseIntPipe) valor: number,
-  ): Promise<Seguros[]> {
+  ): Promise<Clientes[]> {
     return this.clientesService.findAllbyPreco(valor);
   }
 
