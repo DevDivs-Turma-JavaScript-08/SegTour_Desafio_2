@@ -15,10 +15,12 @@ Este projeto foi desenvolvido como parte do **Bloco 2 - Back-End** da formação
 ## 👥 Participantes
 
 ### 👑 Product Owner
+
 - **Grazielle Gualter**  
   [github.com/grazielle30](https://github.com/grazielle30)
 
 ### 👨‍💻 Desenvolvedores
+
 - **Pedro Henrique**  
   [github.com/KarpaTech](https://github.com/KarpaTech)
 
@@ -32,13 +34,13 @@ Este projeto foi desenvolvido como parte do **Bloco 2 - Back-End** da formação
   [github.com/RaideriSpace](https://github.com/RaideriSpace)
 
 ### 🧪 Tester
+
 - **Alex**  
   [github.com/alex-sqls](https://github.com/alex-sqls)
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
-
 
 - **NestJS**
 - **TypeORM**
@@ -53,7 +55,8 @@ Este projeto foi desenvolvido como parte do **Bloco 2 - Back-End** da formação
 - Cadastro, listagem, atualização e remoção de **clientes** e **seguros**
 - Associação entre **cliente** e **seguro** (relacionamento `ManyToOne`)
 - Cálculo do **valor final** do seguro:
-  - Se `tempoViagem > 20 dias`, aplica-se **20% de desconto**
+  - Se `tempoViagem > 7 dias`, aplica-se **15% de desconto**
+  - Se `tempoViagem > 14 dias`, aplica-se **20% de desconto**
   - Caso contrário, mantém-se o valor original
 
 ---
@@ -62,28 +65,28 @@ Este projeto foi desenvolvido como parte do **Bloco 2 - Back-End** da formação
 
 ### 🧍 Clientes
 
-| Método | Rota                  | Descrição                           |
-|--------|-----------------------|-------------------------------------|
-| GET    | /clientes             | Lista todos os clientes             |
-| GET    | /clientes/:id         | Busca cliente por ID                |
-| GET    | /clientes/nome/:nome  | Busca cliente por nome              |
-| GET    | /clientes/valor/:valor| Filtra clientes pelo valor do seguro|
-| POST   | /clientes             | Cadastra novo cliente               |
-| PUT    | /clientes             | Atualiza dados de cliente           |
-| DELETE | /clientes/:id         | Deleta cliente por ID               |
+| Método | Rota                   | Descrição                            |
+| ------ | ---------------------- | ------------------------------------ |
+| GET    | /clientes              | Lista todos os clientes              |
+| GET    | /clientes/:id          | Busca cliente por ID                 |
+| GET    | /clientes/nome/:nome   | Busca cliente por nome               |
+| GET    | /clientes/valor/:valor | Filtra clientes pelo valor do seguro |
+| POST   | /clientes              | Cadastra novo cliente                |
+| PUT    | /clientes              | Atualiza dados de cliente            |
+| DELETE | /clientes/:id          | Deleta cliente por ID                |
 
 ---
 
 ### 🛡️ Seguros
 
-| Método | Rota                         | Descrição                          |
-|--------|------------------------------|------------------------------------|
-| GET    | /seguros                     | Lista todos os seguros             |
-| GET    | /seguros/:id                 | Busca seguro por ID                |
-| GET    | /seguros/cobertura/:cobertura| Filtra por tipo de cobertura       |
-| POST   | /seguros                     | Cadastra novo seguro               |
-| PUT    | /seguros                     | Atualiza dados de seguro           |
-| DELETE | /seguros/:id                 | Deleta seguro por ID               |
+| Método | Rota                          | Descrição                    |
+| ------ | ----------------------------- | ---------------------------- |
+| GET    | /seguros                      | Lista todos os seguros       |
+| GET    | /seguros/:id                  | Busca seguro por ID          |
+| GET    | /seguros/cobertura/:cobertura | Filtra por tipo de cobertura |
+| POST   | /seguros                      | Cadastra novo seguro         |
+| PUT    | /seguros                      | Atualiza dados de seguro     |
+| DELETE | /seguros/:id                  | Deleta seguro por ID         |
 
 ---
 
@@ -126,24 +129,31 @@ TypeOrmModule.forRoot({
   logging: true,
 }),
 ```
+
 ## 🚀 Como Rodar o Projeto
+
 1 - Clone o repositório
+
 ```
 git clone https://github.com/seu-usuario/segtour-api.git
 ```
 
 2 - Instale as dependências
+
 ```
 npm install
 ```
+
 3 - Configure seu banco de dados MySQL com o nome `db_segtour`
 
 4 - Rode o projeto
+
 ```
 npm run start:dev
 ```
 
 ## ✅ Validações e Regras
+
 - Todos os campos obrigatórios são validados com `@IsNotEmpty`
 
 - A associação entre cliente e seguro é obrigatória.
@@ -151,4 +161,5 @@ npm run start:dev
 - O valor final do seguro depende da duração da viagem.
 
 ## 💡 Observações
+
 - Este projeto é puramente educacional, feito com o intuito de praticar conceitos de backend, modelagem relacional, validação, boas práticas REST e estruturação com NestJS.
