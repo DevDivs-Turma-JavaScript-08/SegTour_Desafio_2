@@ -57,6 +57,7 @@ Este projeto foi desenvolvido como parte do **Bloco 2 - Back-End** da formação
 - Cálculo do **valor final** do seguro:
   - Se `tempoViagem > 7 dias`, aplica-se **15% de desconto**
   - Se `tempoViagem > 14 dias`, aplica-se **20% de desconto**
+  - Se `destino = Estados Unidos ou Canada`, aplica-se **20% de acrescimo**
   - Caso contrário, mantém-se o valor original
 
 ---
