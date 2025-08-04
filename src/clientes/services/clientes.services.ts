@@ -36,6 +36,7 @@ export class ClientesService {
 
     return clienteid;
   }
+
   async findbyAllNome(nome: string): Promise<Clientes[]> {
     return await this.clientesRepository.find({
       where: {
@@ -46,6 +47,7 @@ export class ClientesService {
       },
     });
   }
+
   async findAllbyPreco(nome: number): Promise<Clientes[]> {
     return await this.clientesRepository.find({
       where: {
@@ -56,6 +58,7 @@ export class ClientesService {
       },
     });
   }
+
   async create(clienteid: Clientes): Promise<Clientes> {
     if (clienteid.seguros && clienteid.seguros.id) {
       const seguro = await this.segurosService.findById(clienteid.seguros.id);

@@ -34,6 +34,7 @@ export class ClientesController {
   findByNome(@Param('nome') nome: string): Promise<Clientes[]> {
     return this.clientesService.findbyAllNome(nome);
   }
+
   @Get('/valor/:valor')
   @HttpCode(HttpStatus.OK)
   findAllbyPreco(

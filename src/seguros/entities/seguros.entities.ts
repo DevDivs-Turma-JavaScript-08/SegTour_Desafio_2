@@ -1,30 +1,29 @@
-import { IsNotEmpty } from "class-validator";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Clientes } from "../../clientes/entities/clientes.entities";
+import { IsNotEmpty } from 'class-validator';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Clientes } from '../../clientes/entities/clientes.entities';
 
-
-@Entity({name: "tb_seguros"})
+@Entity({ name: 'tb_seguros' })
 export class Seguros {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-   @PrimaryGeneratedColumn()
-   id: number
+  @IsNotEmpty()
+  @Column({ length: 100, nullable: false })
+  destino: string;
 
+  @IsNotEmpty()
+  @Column({
+    type: 'enum',
+    enum: ['basico', 'premium', 'plus'],
+    default: 'basico',
+    nullable: false,
+  })
+  tipoCobertura: string;
 
-   @IsNotEmpty()
-   @Column({length:100, nullable: false})
-   destino: string;
+  @IsNotEmpty()
+  @Column({ length: 100, nullable: false })
+  moeda: string;
 
-   @IsNotEmpty()
-   @Column({type:"enum", enum:["basico","premium","plus"], default:"basico", nullable: false})
-   tipoCobertura: string;
-
-
-   @IsNotEmpty()
-   @Column({length:100, nullable: false})
-   moeda: string;
-
-
-@OneToMany(() => Clientes, (clientes) => Clientes.seguros)
-    clientes: Clientes[];
-
+  @OneToMany(() => Clientes, (clientes) => clientes.seguros)
+  clientes: Clientes[];
 }

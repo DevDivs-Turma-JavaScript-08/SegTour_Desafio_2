@@ -40,14 +40,16 @@ export class SegurosService {
       },
     });
   }
-  
+
   async create(seguros: Seguros): Promise<Seguros> {
     return await this.segurosRepository.save(seguros);
   }
+
   async update(seguros: Seguros): Promise<Seguros> {
     await this.findById(seguros.id);
     return await this.segurosRepository.save(seguros);
   }
+
   async delete(id: number): Promise<DeleteResult> {
     await this.findById(id);
     return await this.segurosRepository.delete(id);
