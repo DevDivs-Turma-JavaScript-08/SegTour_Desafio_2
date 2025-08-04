@@ -40,16 +40,7 @@ export class SegurosService {
       },
     });
   }
-  async findAllbyPreco(nome: number): Promise<Seguros[]> {
-    return await this.segurosRepository.find({
-      where: {
-        valor: nome,
-      },
-      relations: {
-        clientes: true,
-      },
-    });
-  }
+  
   async create(seguros: Seguros): Promise<Seguros> {
     return await this.segurosRepository.save(seguros);
   }

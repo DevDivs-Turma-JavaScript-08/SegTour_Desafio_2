@@ -3,12 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ILike, Repository } from 'typeorm';
 import { Clientes } from '../entities/clientes.entities';
 import { DeleteResult } from 'typeorm/browser';
+import { SegurosService } from '../../seguros/services/seguros.service';
 
 @Injectable()
 export class ClientesService {
   constructor(
     @InjectRepository(Clientes)
     private clientesRepository: Repository<Clientes>,
+    private segurosService: SegurosService,
   ) {}
 
   async findAll(): Promise<Clientes[]> {
@@ -44,12 +46,46 @@ export class ClientesService {
       },
     });
   }
+  async findAllbyPreco(nome: number): Promise<Clientes[]> {
+    return await this.clientesRepository.find({
+      where: {
+        valor: nome,
+      },
+      relations: {
+        seguros: true,
+      },
+    });
+  }
   async create(clienteid: Clientes): Promise<Clientes> {
+    if (clienteid.seguros && clienteid.seguros.id) {
+      const seguro = await this.segurosService.findById(clienteid.seguros.id);
+      clienteid.seguros = seguro;
+    }
+
+    if (clienteid.tempoViagem > 7 && clienteid.tempoViagem < 15) {
+      clienteid.valorFinal = clienteid.valor * 0.85;
+    } else if (clienteid.tempoViagem >= 15) {
+      clienteid.valorFinal = clienteid.valor * 0.8;
+    } else {
+      clienteid.valorFinal = clienteid.valor;
+    }
     return await this.clientesRepository.save(clienteid);
   }
 
   async update(clienteid: Clientes): Promise<Clientes> {
     await this.findById(clienteid.id);
+    if (clienteid.seguros && clienteid.seguros.id) {
+      const seguro = await this.segurosService.findById(clienteid.seguros.id);
+      clienteid.seguros = seguro;
+    }
+
+    if (clienteid.tempoViagem > 7 && clienteid.tempoViagem < 15) {
+      clienteid.valorFinal = clienteid.valor * 0.85;
+    } else if (clienteid.tempoViagem >= 15) {
+      clienteid.valorFinal = clienteid.valor * 0.8;
+    } else {
+      clienteid.valorFinal = clienteid.valor;
+    }
     return await this.clientesRepository.save(clienteid);
   }
 
